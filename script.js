@@ -1,36 +1,53 @@
-// Initialize Animations
-AOS.init({
-    duration: 1000,
-    once: true
+// Init AOS
+AOS.init();
+
+// Custom Cursor Logic
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
 });
 
-// Click to Copy IP Function
+// Click to Copy IP
 function copyIP() {
-    const ipText = document.getElementById('server-ip').innerText;
-    const badge = document.querySelector('.copy-badge');
+    const ip = "play.waterhipe.fun";
+    navigator.clipboard.writeText(ip);
     
-    navigator.clipboard.writeText(ipText).then(() => {
-        // Change text to notify user
-        const originalText = badge.innerHTML;
-        badge.innerHTML = '<i class="fas fa-check"></i> Copied to Clipboard!';
-        badge.style.color = '#00ff00';
-        
-        // Reset after 2 seconds
-        setTimeout(() => {
-            badge.innerHTML = originalText;
-            badge.style.color = '';
-        }, 2000);
-    });
+    const successMsg = document.querySelector('.copy-success');
+    successMsg.style.display = 'block';
+    
+    setTimeout(() => {
+        successMsg.style.display = 'none';
+    }, 2000);
 }
 
-// Navbar background change on scroll
-window.addEventListener('scroll', function() {
-    const nav = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        nav.style.background = '#0a0e14';
-        nav.style.padding = '10px 0';
-    } else {
-        nav.style.background = 'rgba(10, 14, 20, 0.8)';
-        nav.style.padding = '20px 0';
+// Fetch Minecraft Server Status
+async function updateStatus() {
+    try {
+        const response = await fetch('https://api.mcsrvstat.us/2/play.waterhipe.fun');
+        const data = await response.json();
+        
+        const playerElement = document.getElementById('player-num');
+        if(data.online) {
+            playerElement.innerText = data.players.online;
+        } else {
+            playerElement.innerText = "0";
+        }
+    } catch (error) {
+        document.getElementById('player-num').innerText = "OFFLINE";
     }
+}
+
+// Auto-update player count every 30 seconds
+updateStatus();
+setInterval(updateStatus, 30000);
+
+// Smooth Scroll for Nav Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
