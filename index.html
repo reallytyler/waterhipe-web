@@ -3,128 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WaterHipe | Singapore's Premier Minecraft Network</title>
+    <title>WaterHipe Network | Singapore's Competitive Minecraft</title>
     <link rel="icon" type="image/png" href="images/waterhipe_logo.png">
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <img src="images/waterhipe_logo.png" alt="WaterHipe Logo">
-                <span>WaterHipe</span>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
+    <nav class="glass-nav">
+        <div class="container nav-content">
+            <div class="logo-area">
+                <img src="images/waterhipe_logo.png" alt="Logo">
+                <span class="brand-name">WaterHipe</span>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#modes">Game Modes</a></li>
-                <li><a href="#rules">Rules</a></li>
-                <li><a href="https://store.waterhipe.fun/" target="_blank">Store</a></li>
-                <li><a href="https://discord.gg/waterhipe" class="btn-discord"><i class="fab fa-discord"></i> Discord</a></li>
-            </ul>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#modes">Game Modes</a>
+                <a href="#rules">Rules</a>
+                <a href="https://store.waterhipe.fun/" class="nav-btn-store">Store</a>
+                <a href="https://discord.gg/waterhipe" class="nav-btn-discord"><i class="fab fa-discord"></i> Join Us</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <img src="images/waterhipe-rbg.png" alt="WaterHipe" class="main-logo">
-            <p class="subtitle">Singapore-hosted • Low Latency • Professional Management</p>
-            <div class="ip-container" onclick="copyIP()">
-                <span id="server-ip">play.waterhipe.fun</span>
-                <span class="copy-badge"><i class="far fa-copy"></i> Click to Copy</span>
+    <section id="home" class="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-content" data-aos="zoom-out" data-aos-duration="1500">
+            <img src="images/waterhipe-rbg.png" alt="WaterHipe" class="hero-logo">
+            <h2 class="glitch-text" data-text="SINGAPORE'S FINEST NETWORK">SINGAPORE'S FINEST NETWORK</h2>
+            
+            <div class="join-box" onclick="copyIP()">
+                <div class="join-text">
+                    <span class="ip-address">PLAY.WATERHIPE.FUN</span>
+                    <span class="player-count"><i class="fas fa-users"></i> <span id="player-num">...</span> PLAYERS ONLINE</span>
+                </div>
+                <div class="join-icon">
+                    <i class="fas fa-copy"></i>
+                </div>
+                <div class="copy-success">COPIED!</div>
             </div>
-            <div class="status">
-                <span class="pulse"></span> Grand Opening Coming Soon
-            </div>
-        </div>
-    </header>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container grid">
-            <div class="feature-card" data-aos="zoom-in">
-                <i class="fas fa-microchip"></i>
-                <h3>Singapore Host</h3>
-                <p>Optimal ping for SEA players with high-performance infrastructure.</p>
-            </div>
-            <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
-                <i class="fas fa-shield-halved"></i>
-                <h3>Anti-Cheat</h3>
-                <p>Advanced protection to ensure a fair and competitive environment.</p>
-            </div>
-            <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
-                <i class="fas fa-bolt"></i>
-                <h3>Lag-Free</h3>
-                <p>Optimized server engine for the smoothest gameplay experience.</p>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
             </div>
         </div>
     </section>
 
-    <!-- Game Modes -->
-    <section id="modes" class="modes">
+    <section id="modes" class="game-modes">
         <div class="container">
-            <h2 class="section-title">Our Game Modes</h2>
-            <div class="modes-grid">
-                <div class="mode-card" data-aos="fade-right">
-                    <div class="mode-icon">⚔️</div>
-                    <h3>Lifesteal</h3>
-                    <p>Kill players to gain hearts. Lose them when you die. High stakes survival.</p>
-                </div>
-                <div class="mode-card" data-aos="fade-up">
-                    <div class="mode-icon">🏹</div>
-                    <h3>Cart PvP</h3>
-                    <p>Fast-paced technical combat centered around strategic movement.</p>
-                </div>
-                <div class="mode-card" data-aos="fade-left">
-                    <div class="mode-icon">💎</div>
-                    <h3>End Fight</h3>
-                    <p>Intense battles in the End dimension with custom loot and mechanics.</p>
-                </div>
+            <div class="section-header" data-aos="fade-up">
+                <span class="accent-text">EXPERIENCE THE ACTION</span>
+                <h2>PREMIUM GAME MODES</h2>
             </div>
-        </div>
-    </section>
 
-    <!-- Rules Section -->
-    <section id="rules" class="rules">
-        <div class="container">
-            <h2 class="section-title">Server Rules</h2>
-            <div class="rules-container">
-                <div class="rules-box" data-aos="fade-up">
-                    <h3><i class="fas fa-users"></i> Community</h3>
-                    <ul>
-                        <li>Treat all players and staff with respect.</li>
-                        <li>No toxicity, hate speech, or discrimination.</li>
-                        <li>No spamming or self-promotion.</li>
-                        <li>Keep chats clean and appropriate.</li>
-                    </ul>
+            <div class="bento-grid">
+                <div class="bento-item big lifesteal" data-aos="fade-up">
+                    <div class="bento-content">
+                        <span class="tag">HOT</span>
+                        <h3>LIFESTEAL SMP</h3>
+                        <p>High stakes, heart stealing, and pure survival. Build your empire or fall to the blade.</p>
+                        <a href="#" class="btn-small">Learn More</a>
+                    </div>
                 </div>
-                <div class="rules-box" data-aos="fade-up" data-aos-delay="100">
-                    <h3><i class="fas fa-gamepad"></i> Gameplay</h3>
-                    <ul>
-                        <li>Strictly no hacks, X-ray, or unfair mods.</li>
-                        <li>Exploiting bugs is prohibited (Report them!).</li>
-                        <li>No griefing, scamming, or unfair PvP.</li>
-                        <li>Alt accounts for advantages are banned.</li>
-                    </ul>
+                <div class="bento-item cart-pvp" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bento-content">
+                        <h3>CART PVP</h3>
+                        <p>Intense technical combat on the move.</p>
+                    </div>
+                </div>
+                <div class="bento-item end-fight" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bento-content">
+                        <h3>END FIGHT</h3>
+                        <p>Dominate the dimension.</p>
+                    </div>
+                </div>
+                <div class="bento-item wide infrastructure" data-aos="fade-up">
+                    <div class="bento-content">
+                        <h3>ULTRA-LOW LATENCY</h3>
+                        <p>Hosted on Singapore's fastest enterprise hardware for the lowest ping in SEA.</p>
+                        <div class="ping-bars">
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <small>09ms</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <section id="rules" class="rules-section">
         <div class="container">
-            <img src="images/waterhipe_logo.png" alt="Footer Logo" class="footer-logo">
-            <p>&copy; 2024 WaterHipe Network. Not affiliated with Mojang AB.</p>
-            <div class="social-links">
-                <a href="https://discord.gg/waterhipe"><i class="fab fa-discord"></i></a>
-                <a href="https://store.waterhipe.fun/"><i class="fas fa-shopping-cart"></i></a>
+            <div class="rules-card-container" data-aos="fade-right">
+                <div class="rules-header">
+                    <i class="fas fa-gavel"></i>
+                    <h2>Network Rules</h2>
+                    <p>Fair play is the core of WaterHipe.</p>
+                </div>
+                <div class="rules-list">
+                    <div class="rule-item"><span>01</span> Respect all community members</div>
+                    <div class="rule-item"><span>02</span> No unfair advantages/cheats</div>
+                    <div class="rule-item"><span>03</span> No exploitation of glitches</div>
+                    <div class="rule-item"><span>04</span> Professional conduct in chats</div>
+                </div>
+                <a href="https://discord.gg/waterhipe" class="full-rules-btn">Read Full Rules on Discord</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <img src="images/waterhipe_logo.png" alt="Logo">
+                    <p>Providing the most stable and competitive Minecraft environment in Southeast Asia.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="#home">Home</a>
+                    <a href="https://store.waterhipe.fun/">Store</a>
+                    <a href="https://discord.gg/waterhipe">Support</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WaterHipe. All rights reserved. Not an official Minecraft product.</p>
             </div>
         </div>
     </footer>
